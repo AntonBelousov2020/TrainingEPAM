@@ -32,7 +32,7 @@ public class Service implements Repository<Human, HumanDto>{
         HumanDto humanDto;
         Human human = list.get(index);
         humanDto = converter.convert(human);
-        System.out.println(humanDto);
+        System.out.println(humanDto.toStringHD());
         return humanDto;
     }
 
@@ -46,7 +46,7 @@ public class Service implements Repository<Human, HumanDto>{
         HumanDto[] humanDto = new HumanDto[list.size()];
         for (int i = 0; i < list.size(); i++){
             humanDto[i] = converter.convert(humans[i]);
-            System.out.println(humanDto[i]);
+            System.out.println(humanDto[i].toStringHD());
         }
         return humanDto;
     }
@@ -61,20 +61,13 @@ public class Service implements Repository<Human, HumanDto>{
 
     public void setAllEntyty(HumanDto[] entytys) {
         Converter converter = new Converter();
-        Human[] humans;
+        Human[] humans = new Human[entytys.length];
         System.out.println("Все сущности сохранены");
         for (int i = 0; i < entytys.length; i ++){
-            list.add(converter.convert(entytys[i]));
-            System.out.println(list.toString());
+            humans[i] = converter.convert(entytys[i]);
+            list.add(humans[i]);
+            System.out.println(humans[i].toStringH());
         }
     }
 
-    public String toStringList(){
-        String s;
-        HumanDto human = new HumanDto();
-        s = String.format("Имя %s, Дата рождения %s, Улица %s, Номер дома %d, Номер этажа %d, Номер квариты %d",
-                human.getName(), human.getBrithDate().toString(), human.getAdress().getStreet(), human.getAdress().getHouseNumber(),
-                human.getAdress().getFloorNumber(), human.getAdress().getFlatNumber());
-        return s;
-    }
 }

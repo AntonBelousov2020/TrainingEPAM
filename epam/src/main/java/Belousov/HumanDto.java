@@ -39,13 +39,13 @@ public class HumanDto {
 
     public HumanDto createRandomHumanDto(){
         String[] nameRandom = {"Алексей","Иван","Михаил","Антон","Раимль"};
-        int yearRandom = 1968 + (int) Math.random()*52;
-        int mounthRandom = 1 + (int) Math.random()*11;
-        int dateRandom = 1 + (int) Math.random()*28;
+        int yearRandom = 1968 + (int) (Math.random()*52);
+        int mounthRandom = 1 + (int) (Math.random()*11);
+        int dateRandom = 1 + (int) (Math.random()*28);
         String streetRandom[] = {"Гая", "Юбилейная", "Свердлова", "Тополиная", "Советская"};
-        int houseNumbeerRandom = 1 + (int) Math.random()*50;
-        int floorNumberRandom = 1 + (int) Math.random()*15;
-        int flatNumberRandom = 1 + (int) Math.random()*227;
+        int houseNumbeerRandom = 1 + (int) (Math.random()*50);
+        int floorNumberRandom = 1 + (int) (Math.random()*15);
+        int flatNumberRandom = 1 + (int) (Math.random()*227);
         HumanDto humanDto = new HumanDto(id++,nameRandom[(int)(Math.random()*nameRandom.length)], yearRandom, mounthRandom, dateRandom,
                 streetRandom[(int) (Math.random()*streetRandom.length)], houseNumbeerRandom, floorNumberRandom, flatNumberRandom);
         return humanDto;
