@@ -1,8 +1,8 @@
 package Belousov;
 
 public  interface Repository<T,V> {
-    public V getEntyty(int index);
-    public V[] getAllEntyty();
-    public void setEntyty(V entyty);
-    public void setAllEntyty(V[] entytys);
+    public V getEntity(int index);
+    public V[] getAllEntity();
+    public void setEntity(V entyty);
+    public void setAllEntity(V[] entytys);
 }

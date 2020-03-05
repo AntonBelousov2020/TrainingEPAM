@@ -4,9 +4,12 @@ package Belousov;
 import java.util.LinkedList;
 
 public class Service implements Repository<Human, HumanDto>{
+
     private static int length = 3;//Размер массива HumanDto
     private LinkedList<Human> list = new LinkedList<Human>();
+
     public void service() throws ClassNotFoundException, IllegalAccessException{
+        
         Converter converter = new Converter();
         HumanDto[] humansDto = new HumanDto[length];
 
@@ -16,16 +19,16 @@ public class Service implements Repository<Human, HumanDto>{
 
         Service service = new Service();
         //Добавление одной сущности
-        service.setEntyty(humansDto[0]);
+        service.setEntity(humansDto[0]);
         //Добавление всех сущностей
-        service.setAllEntyty(humansDto);
+        service.setAllEntity(humansDto);
         //Получение одной сущности
-        service.getEntyty(2);
+        service.getEntity(2);
         //Получение всех сущностей
-        service.getAllEntyty();
+        service.getAllEntity();
     }
 
-    public HumanDto getEntyty(int index) {
+    public HumanDto getEntity(int index) {
         System.out.println("Получение одной сущности");
         Converter converter = new Converter();
         HumanDto humanDto;
@@ -35,7 +38,7 @@ public class Service implements Repository<Human, HumanDto>{
         return humanDto;
     }
 
-    public HumanDto[] getAllEntyty() {
+    public HumanDto[] getAllEntity() {
         System.out.println("Получение всех сущностей");
         Converter converter = new Converter();
         Human[] humans = new Human[list.size()];
@@ -50,27 +53,27 @@ public class Service implements Repository<Human, HumanDto>{
         return humanDto;
     }
 
-    public void setEntyty(HumanDto entyty) {//Сохранение одной
+    public void setEntity(HumanDto entity) {//Сохранение одной
         Converter converter = new Converter();
-        Human human = converter.convertToHuman(entyty);
+        Human human = converter.convertToHuman(entity);
         System.out.println("Одна сущность сохранена");
         System.out.println(human.toString());
         list.add(human);
     }
 
-    public void setAllEntyty(HumanDto[] entytys) {//Сохранение всех DTO в entyty
+    public void setAllEntity(HumanDto[] entitys) {//Сохранение всех DTO в entyty
         Converter converter = new Converter();
-        Human[] humans = new Human[entytys.length];
+        Human[] humans = new Human[entitys.length];
         System.out.println("Все сущности сохранены");
-        for (int i = 0; i < entytys.length; i ++){
-            humans[i] = converter.convertToHuman(entytys[i]);
+        for (int i = 0; i < entitys.length; i ++){
+            humans[i] = converter.convertToHuman(entitys[i]);
             list.add(humans[i]);
             System.out.println(humans[i].toString());
         }
     }
 
 
-    public HumanDto createRandomHumanDto(int index){//Генерация сущностей
+    private HumanDto createRandomHumanDto(int index){//Генерация сущностей
         Human human = new Human();
         String[] nameRandom = {"Алексей","Иван","Михаил","Антон","Раимль"};
         int yearRandom = 1968 + (int) (Math.random()*52);
