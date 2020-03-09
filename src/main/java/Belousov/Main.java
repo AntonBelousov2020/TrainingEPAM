@@ -1,10 +1,9 @@
 package Belousov;
 
-import lombok.Data;
-
-@Data
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world");
+
+        Service service = new Service();
+        service.service();
     }
 }
