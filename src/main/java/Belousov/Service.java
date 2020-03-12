@@ -52,7 +52,7 @@ public class Service{
             System.out.println(humans1[i]);
         }
 
-        System.out.println("-------------------Exeptions-------------------");
+        System.out.println("-------------------Exeptions!-------------------");
         try {
             repository.getEntity(10);
         } catch (ServiceExeption exeption){
