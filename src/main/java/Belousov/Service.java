@@ -1,5 +1,8 @@
 package Belousov;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 
 public class Service{
 
@@ -14,8 +17,10 @@ public class Service{
         converter = new Converter();
     }
 
-    public void service() throws ClassNotFoundException, IllegalAccessException{
+    public void service() throws ServiceExeption, ConverterExeption {
 
+
+        log.info("Попытка подключения и запроса к базе данных");
         Human human = new Human();
         Human human1 = new Human();
         HumanDto humanDto1 = new HumanDto();
@@ -45,6 +50,26 @@ public class Service{
         repository.setAllEntity(humans1);
         for (int i = 0; i < length; i++) {
             System.out.println(humans1[i]);
+        }
+
+        System.out.println("-------------------Exeptions-------------------");
+        try {
+            repository.getEntity(10);
+        } catch (ServiceExeption exeption){
+            log.error(exeption.getMessage());
+        }
+
+        try {
+            repository.setEntity(null);
+        } catch (NullPointerException npe){
+            log.error(npe.getMessage());
+        }
+
+        try {
+            Converter converter = new Converter();
+            converter.convertToDto(null);
+        } catch (ConverterExeption ce){
+            log.error(ce.getMessage());
         }
     }
 }

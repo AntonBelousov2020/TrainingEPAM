@@ -14,6 +14,8 @@ public class RepositoryImpl implements Repository <Human> {
     private LinkedList<Human> list = new LinkedList<Human>();
 
     public RepositoryImpl(){
+
+        log.info("Успешное подключение к базе данных");
         for (int i = 0; i < 5; i++) {
             list.add(i, createRandomHuman(i));
         }
