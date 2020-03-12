@@ -39,6 +39,7 @@ public class Human {
 
     @Override
     public String toString(){
+
         String s;
         s = String.format("id %d,Имя %s, Дата рождения %s, Улица %s, Номер дома %d, Номер этажа %d, Номер квартиры %d", id,name, brithDate.toString(), adress.street, adress.houseNumber, adress.floorNumber, adress.flatNumber);
         return s;

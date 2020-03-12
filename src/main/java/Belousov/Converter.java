@@ -23,6 +23,7 @@ public class Converter {
     }
 
     public HumanDto convertToDto (Human human) throws ConverterExeption{
+
         HumanDto humanDto;
         humanDto = new HumanDto(human.getId(),
                 human.getName(),

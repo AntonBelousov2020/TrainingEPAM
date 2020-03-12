@@ -25,6 +25,7 @@ public class HumanDto {
     @Data
     @NoArgsConstructor
     protected static class DtoMyAdress {
+
         private String street;
         private int houseNumber, floorNumber, flatNumber;
 

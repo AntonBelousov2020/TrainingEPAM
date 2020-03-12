@@ -59,6 +59,7 @@ public class Service{
             log.error(exeption.getMessage());
         }
 
+
         try {
             repository.setEntity(null);
         } catch (NullPointerException npe){

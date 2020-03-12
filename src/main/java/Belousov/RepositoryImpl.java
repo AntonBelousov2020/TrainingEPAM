@@ -25,6 +25,7 @@ public class RepositoryImpl implements Repository <Human> {
 
         Human human = createRandomHuman(index);
         human = list.get(index);
+
         log.info("Сущность успешно получена из базы");
         return human;
     }
