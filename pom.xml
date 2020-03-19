@@ -17,6 +17,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- logback (sl4j) -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
     </dependencies>
 
 </project>
