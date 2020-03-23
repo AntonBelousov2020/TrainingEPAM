@@ -17,7 +17,7 @@
         </rollingPolicy>
     </appender>
     <!-- Логгер для файла-->
-    <logger name="belousov.Test" level="info" additivity="false">
+    <logger name="belousov.task2.Stack" level="info" additivity="false">
         <appender-ref ref="FILE-AUDIT"/>
     </logger>
 
@@ -31,12 +31,12 @@
     </appender>
 
     <!-- Логгер для консоли-->
-    <logger name="belousov.Test" level="info" additivity="false">
+    <logger name="belousov.task1.Memory" level="info" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
 
     <!-- Логгер для файла и консоли-->
-    <logger name="belousov.LoggingIntoFile" level="debug" additivity="false">
+    <logger name="belousov.task3.MyClassLoader" level="debug" additivity="false">
         <appender-ref ref="FILE-AUDIT"/>
         <appender-ref ref="CONSOLE"/>
     </logger>
