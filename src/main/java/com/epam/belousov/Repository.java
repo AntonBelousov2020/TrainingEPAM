@@ -1,8 +1,8 @@
-package belousov;
+package com.epam.belousov;
 
 public  interface Repository<T,V> {
     public V getEntity(int index);
-    public V[] getAllEntity();
+    public V[] getAllEntitys();
     public void setEntity(V entyty);
-    public void setAllEntity(V[] entytys);
+    public void setAllEntitys(V[] entytys);
 }

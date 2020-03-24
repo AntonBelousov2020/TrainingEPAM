@@ -1,4 +1,4 @@
-package belousov;
+package com.epam.belousov;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,7 @@ public class Human {
     private Date brithDate;
     private MyAdress adress;
 
-    public Human(int  id,String name, int year, int mounth, int date, String street, int houseNumber, int floorNumber, int flatNumber){
+    public Human(int id,String name, int year, int mounth, int date, String street, int houseNumber, int floorNumber, int flatNumber){
         this.id = id++;
         this.name = name;
         this.brithDate = new Date(year, mounth, date);

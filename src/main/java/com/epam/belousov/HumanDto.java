@@ -1,4 +1,4 @@
-package belousov;
+package com.epam.belousov;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

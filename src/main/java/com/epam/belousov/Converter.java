@@ -1,4 +1,4 @@
-package belousov;
+package com.epam.belousov;
 
 public class Converter{
 

@@ -1,74 +1,71 @@
-package belousov;
+package com.epam.belousov;
 
 
 import java.util.LinkedList;
 
 public class Service implements Repository<Human, HumanDto>{
 
-    private static int length = 3;//Размер массива HumanDto
-    private LinkedList<Human> list = new LinkedList<Human>();
+    private static final int LENGTH_ARR_DTO = 3;//Размер массива HumanDto
+    private LinkedList<Human> humanList = new LinkedList<Human>();
 
     public void service() throws ClassNotFoundException, IllegalAccessException{
 
 
         Converter converter = new Converter();
-        HumanDto[] humansDto = new HumanDto[length];
+        HumanDto[] humansDto = new HumanDto[LENGTH_ARR_DTO];
 
-        for (int i = 0; i < length; i ++){
+        for (int i = 0; i < LENGTH_ARR_DTO; i ++){
             humansDto[i] = this.createRandomHumanDto(i);
         }
 
         Service service = new Service();
-        //Добавление одной сущности
         service.setEntity(humansDto[0]);
-        //Добавление всех сущностей
-        service.setAllEntity(humansDto);
-        //Получение одной сущности
+        service.setAllEntitys(humansDto);
+
         service.getEntity(2);
-        //Получение всех сущностей
-        service.getAllEntity();
+        service.getAllEntitys();
     }
 
     public HumanDto getEntity(int index) {
-        System.out.println("Получение одной сущности");
+        System.out.println("Geting one entity");
         Converter converter = new Converter();
         HumanDto humanDto;
-        Human human = list.get(index);
+        Human human = humanList.get(index);
         humanDto = converter.convertToDto(human);
         System.out.println(humanDto.toString());
         return humanDto;
     }
 
-    public HumanDto[] getAllEntity() {
-        System.out.println("Получение всех сущностей");
+    public HumanDto[] getAllEntitys() {
+        System.out.println("Getting all entitys");
         Converter converter = new Converter();
-        Human[] humans = new Human[list.size()];
-        for (int i = 0; i < list.size(); i++){
-            humans[i] = list.get(i);
+        Human[] humans = new Human[humanList.size()];
+        for (int i = 0; i < humanList.size(); i++){
+            humans[i] = humanList.get(i);
         }
-        HumanDto[] humanDto = new HumanDto[list.size()];
-        for (int i = 0; i < list.size(); i++){
-            humanDto[i] = converter.convertToDto(humans[i]);
-            System.out.println(humanDto[i].toString());
+        HumanDto[] humansDto = new HumanDto[humanList.size()];
+        for (int i = 0; i < humanList.size(); i++){
+            humansDto[i] = converter.convertToDto(humans[i]);
+            System.out.println(humansDto[i].toString());
         }
-        return humanDto;
+        return humansDto;
     }
 
-    public void setEntity(HumanDto entity) {//Сохранение одной
+    public void setEntity(HumanDto humanDto) {//Сохранение одной
         Converter converter = new Converter();
-        Human human = converter.convertToHuman(entity);
-        System.out.println("Одна сущность сохранена");
+        Human human = converter.convertToHuman(humanDto);
+        System.out.println("One entity saved");
         System.out.println(human.toString());
-        list.add(human);
+        humanList.add(human);
     }
 
-    public void setAllEntity(HumanDto[] entitys) {//Сохранение всех DTO в entyty
+    public void setAllEntitys(HumanDto[] humansDto) {//Сохранение всех DTO в entyty
         Converter converter = new Converter();
-        Human[] humans = new Human[entitys.length];
-        System.out.println("Все сущности сохранены");
-        for (int i = 0; i < entitys.length; i ++){
-            humans[i] = converter.convertToHuman(entitys[i]);
-            list.add(humans[i]);
+        Human[] humans = new Human[humansDto.length];
+        System.out.println("All entity saved");
+        for (int i = 0; i < humansDto.length; i ++){
+            humans[i] = converter.convertToHuman(humansDto[i]);
+            humanList.add(humans[i]);
             System.out.println(humans[i].toString());
         }
     }
