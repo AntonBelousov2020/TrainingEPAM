@@ -1,4 +1,9 @@
-package com.epam.belousov;
+package com.epam.belousov.service;
+
+import com.epam.belousov.converter.Converter;
+import com.epam.belousov.dto.HumanDto;
+import com.epam.belousov.entity.Human;
+import com.epam.belousov.repository.Repository;
 
 import java.util.LinkedList;
 

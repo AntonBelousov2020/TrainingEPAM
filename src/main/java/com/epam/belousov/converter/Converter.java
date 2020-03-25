@@ -1,4 +1,7 @@
-package com.epam.belousov;
+package com.epam.belousov.converter;
+
+import com.epam.belousov.entity.Human;
+import com.epam.belousov.dto.HumanDto;
 
 public class Converter {
 

@@ -1,4 +1,4 @@
-package com.epam.belousov;
+package com.epam.belousov.repository;
 
 public interface Repository<T, V> {
 
