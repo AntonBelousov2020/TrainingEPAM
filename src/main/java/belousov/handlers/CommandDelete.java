@@ -12,12 +12,21 @@ public class CommandDelete implements CommandHandler {
 
     Pattern pattern;
 
+    /**
+     * This realise handle with regular expression and logic for delete command
+     *
+     * @param command - input delete command
+     * @throws CommandExeption - in case command delete write with some mistakes
+     *                         or in case if number line for delete not exist
+     */
     @Override
     public void handler(String command) throws CommandExeption {
 
         pattern = Pattern.compile("^(delete)( +[\\d]*)? +([\\w]+[\\w.]*)$");
 
-        if(!pattern.matcher(command).matches()) throw new CommandExeption("Команда delete введена не верно");
+        if (!pattern.matcher(command).matches()) {
+            throw new CommandExeption("Команда delete введена не верно");
+        }
 
         Scanner scanner = new Scanner(command);
         scanner.next();
@@ -25,15 +34,16 @@ public class CommandDelete implements CommandHandler {
         int numberLineToDelete = 1;
         boolean hasNumberLine = scanner.hasNextInt();
 
-        if(hasNumberLine == true){
+        if (hasNumberLine == true) {
             numberLineToDelete = scanner.nextInt();
         }
 
         String fileName = scanner.next();
         List<String> lines = MyReadFromFile.parseFile(fileName);
 
-        if(hasNumberLine == true){
-            if(numberLineToDelete > lines.size()) throw new CommandExeption("Строка не может быть удалена, нет такого номера строки");
+        if (hasNumberLine == true) {
+            if (numberLineToDelete > lines.size())
+                throw new CommandExeption("Строка не может быть удалена, нет такого номера строки");
             lines.remove(numberLineToDelete - 1);
         } else {
             lines.remove(lines.size() - 1);
