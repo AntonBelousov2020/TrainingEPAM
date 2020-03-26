@@ -5,7 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MyClassLoaderWork {
 
-    public void myClassLoaderWork(){
+    /**
+     * This method realise main logic. In this method calling methods load for compile class. Byte code located an other
+     * directory compared with project directory
+     */
+    public void myClassLoaderWork() {
         MyClassLoader classLoader = new MyClassLoader("C:\\Users\\Anton\\Desktop\\myClasses\\");
         Class<?> clazz;
         try {
