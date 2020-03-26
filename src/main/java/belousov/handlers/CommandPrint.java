@@ -10,12 +10,19 @@ public class CommandPrint implements CommandHandler {
 
     Pattern pattern;
 
+    /**
+     * This method realise handle with regular expression and logic for print command
+     *
+     * @param command - input print command
+     * @throws CommandExeption - in case command print write with some mistakes or input number line is zero
+     */
     @Override
     public void handler(String command) throws CommandExeption {
-
         pattern = Pattern.compile("^(print)( +[\\d])? +([\\w]+[\\w.]*)$");
 
-        if (!pattern.matcher(command).matches()) throw new CommandExeption("Команда print написана не верно");
+        if (!pattern.matcher(command).matches()) {
+            throw new CommandExeption("Команда print написана не верно");
+        }
         Scanner scanner = new Scanner(command);
         scanner.next();
 
@@ -23,14 +30,19 @@ public class CommandPrint implements CommandHandler {
         boolean hasLineNumber;
         hasLineNumber = scanner.hasNextInt();
 
-        if (hasLineNumber == true){
+        if (hasLineNumber == true) {
             lineNumber = scanner.nextInt();
         }
 
-        if(hasLineNumber && lineNumber == 0) throw new CommandExeption("Нулевой строки нет");
+        if (hasLineNumber && lineNumber == 0) {
+            throw new CommandExeption("Нулевой строки нет");
+        }
         String fileName = scanner.next();
 
-        if (hasLineNumber == true) MyPrintToCommandLine.printToCommandlineToLine(fileName, lineNumber);
-        else MyPrintToCommandLine.printToCommandline(fileName);
+        if (hasLineNumber == true) {
+            MyPrintToCommandLine.printToCommandlineToLine(fileName, lineNumber);
+        } else {
+            MyPrintToCommandLine.printToCommandline(fileName);
+        }
     }
 }

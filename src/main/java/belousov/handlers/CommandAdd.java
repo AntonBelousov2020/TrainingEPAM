@@ -12,12 +12,20 @@ public class CommandAdd implements CommandHandler {
 
     Pattern pattern;
 
+    /**
+     * This method realise handle with regular expression and logic for add command
+     *
+     * @param command - input add command
+     * @throws CommandExeption - in case command add write with some mistakes
+     */
     @Override
-    public void handler(String command) throws CommandExeption{
-
+    public void handler(String command) throws CommandExeption {
 
         pattern = Pattern.compile("^(add)( +[\\d]*)? ([\\w]+[\\w.]*) +(\"[\\w ]*\")?$");
-        if (!pattern.matcher(command).matches()) throw new CommandExeption("Команда add написана не верно");
+
+        if (!pattern.matcher(command).matches()) {
+            throw new CommandExeption("Команда add написана не верно");
+        }
 
         Scanner scanner = new Scanner(command);
         scanner.next();
@@ -25,16 +33,16 @@ public class CommandAdd implements CommandHandler {
         int numberLine = 0;
         boolean hasNumberLine = scanner.hasNextInt();
 
-        if(hasNumberLine == true){
+        if (hasNumberLine == true) {
             numberLine = scanner.nextInt();
         }
 
         String fileName = scanner.next();
         String txt = scanner.findInLine("\"[\\w ]*\"");
-        txt = txt.replace("\"","");
+        txt = txt.replace("\"", "");
         List<String> lines = MyReadFromFile.parseFile(fileName);
 
-        if(hasNumberLine == true){
+        if (hasNumberLine == true) {
             for (int i = lines.size(); i < numberLine - 1; i++) {
                 lines.add("");
             }

@@ -32,9 +32,15 @@ public class Filter {
         commandsCommandHandlerHashMap.put(Commands.EXIT, new CommandExit());
     }
 
+    /**
+     * This method call handler with special command
+     *
+     * @param command - input some command
+     * @throws CommandExeption - in case some command write with some mistakes
+     */
     public void execute(String command) throws CommandExeption {
 
-        if (pattern.matcher(command).matches()){
+        if (pattern.matcher(command).matches()) {
 
             System.out.println("Команда распознана");
             Scanner scanner = new Scanner(command);

@@ -13,20 +13,27 @@ import java.util.List;
 @Slf4j
 public class MyReadFromFile {
 
-    public static List<String> parseFile(String fileName) throws CommandExeption{
+    /**
+     * This method parse input file
+     *
+     * @param fileName - file name input file
+     * @return List of lines. This lines is lines text on the input file
+     * @throws CommandExeption in case file not exist or not found
+     */
+    public static List<String> parseFile(String fileName) throws CommandExeption {
 
         File file = new File(fileName);
         List<String> lines = new ArrayList<>();
 
-        if(file.exists()){
+        if (file.exists()) {
             try (BufferedReader in = new BufferedReader(new FileReader(file))) {
-                while (in.ready()){
+                while (in.ready()) {
                     lines.add(in.readLine());
                 }
-            } catch (FileNotFoundException e){
+            } catch (FileNotFoundException e) {
                 System.out.println("Файл не найден");
                 log.error(e.getMessage());
-            } catch (Exception e){
+            } catch (Exception e) {
                 log.error(e.getMessage());
                 System.out.println("Ошибка при чтении файла. Подробнее в logs\\debug.log");
             }
