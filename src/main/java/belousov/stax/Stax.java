@@ -14,7 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Stax {
-    public static List<Catalog> parseXml(String fileName){
+    /**
+     * This method parsed input xml document using STAX api
+     *
+     * @param fileName - input file xml (catalogPlant)
+     * @return parsed catalogPlant as list
+     */
+    public static List<Catalog> parseXml(String fileName) {
         List<Catalog> catalogList = new ArrayList<>();
         Catalog catalog = null;
         XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
@@ -23,34 +29,34 @@ public class Stax {
             FileInputStream fileInputStream = new FileInputStream(fileName);
             XMLEventReader eventReader = xmlInputFactory.createXMLEventReader(fileInputStream);
 
-            while (eventReader.hasNext()){
+            while (eventReader.hasNext()) {
                 XMLEvent xmlEvent = null;
                 try {
-                    xmlEvent =  eventReader.nextEvent();
-                } catch (XMLStreamException e){
+                    xmlEvent = eventReader.nextEvent();
+                } catch (XMLStreamException e) {
                     e.printStackTrace();
                 }
 
-                if (xmlEvent.isStartElement()){
+                if (xmlEvent.isStartElement()) {
                     StartElement startElement = xmlEvent.asStartElement();
-                    if (startElement.getName().getLocalPart().equals("PLANT")){
+                    if (startElement.getName().getLocalPart().equals("PLANT")) {
                         catalog = new Catalog();
-                    } else if (startElement.getName().getLocalPart().equals("COMMON")){
+                    } else if (startElement.getName().getLocalPart().equals("COMMON")) {
                         xmlEvent = eventReader.nextEvent();
                         catalog.setCommon(xmlEvent.asCharacters().getData());
-                    } else if (startElement.getName().getLocalPart().equals("BOTANICAL")){
+                    } else if (startElement.getName().getLocalPart().equals("BOTANICAL")) {
                         xmlEvent = eventReader.nextEvent();
                         catalog.setBotanical(xmlEvent.asCharacters().getData());
-                    } else if (startElement.getName().getLocalPart().equals("ZONE")){
+                    } else if (startElement.getName().getLocalPart().equals("ZONE")) {
                         xmlEvent = eventReader.nextEvent();
                         catalog.setZone(xmlEvent.asCharacters().getData());
-                    } else if (startElement.getName().getLocalPart().equals("LIGHT")){
+                    } else if (startElement.getName().getLocalPart().equals("LIGHT")) {
                         xmlEvent = eventReader.nextEvent();
                         catalog.setZone(xmlEvent.asCharacters().getData());
-                    } else if (startElement.getName().getLocalPart().equals("PRICE")){
+                    } else if (startElement.getName().getLocalPart().equals("PRICE")) {
                         xmlEvent = eventReader.nextEvent();
                         catalog.setZone(xmlEvent.asCharacters().getData());
-                    } else if (startElement.getName().getLocalPart().equals("AVAILABILITY")){
+                    } else if (startElement.getName().getLocalPart().equals("AVAILABILITY")) {
                         xmlEvent = eventReader.nextEvent();
                         catalog.setZone(xmlEvent.asCharacters().getData());
                     }
@@ -59,9 +65,9 @@ public class Stax {
                 /*
                 Если дошли до закрывающего тега PLANT, то добавляем считанный из файла объект в список
                  */
-                if (xmlEvent.isEndElement()){
+                if (xmlEvent.isEndElement()) {
                     EndElement endElement = xmlEvent.asEndElement();
-                    if (endElement.getName().getLocalPart().equals("PLANT")){
+                    if (endElement.getName().getLocalPart().equals("PLANT")) {
                         catalogList.add(catalog);
                     }
                 }

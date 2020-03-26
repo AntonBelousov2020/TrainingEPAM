@@ -56,8 +56,13 @@ public class Catalog {
         this.availability = availability;
     }
 
+    /**
+     * This method is override method toString for special format string
+     *
+     * @return plantCatalog as string
+     */
     @Override
-    public String toString(){
+    public String toString() {
         return "Plant {common=' " + common + '\'' +
                 ", botanical=' " + botanical + '\'' +
                 ", zone=' " + zone + '\'' +
