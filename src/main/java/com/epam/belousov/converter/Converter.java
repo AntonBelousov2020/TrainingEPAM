@@ -1,8 +1,20 @@
-package Belousov;
+package com.epam.belousov.converter;
 
-public class Converter{
+import com.epam.belousov.entity.Human;
+import com.epam.belousov.dto.HumanDto;
 
-    public Human convertToHuman (HumanDto humanDto){
+public class Converter {
+
+    /**
+     * This method convert DTO to entity
+     *
+     * @param humanDto - entry DTO
+     * @return human entity or exeption. Exeption is returned if entry parameter has been null
+     */
+    public Human convertToHuman(HumanDto humanDto) {
+        if (humanDto == null) {
+            throw new NullPointerException();
+        }
         Human human;
         human = new Human(humanDto.getId(),
                 humanDto.getName(),
@@ -16,7 +28,17 @@ public class Converter{
         return human;
     }
 
-    public HumanDto convertToDto (Human human){
+
+    /**
+     * This method convert entity to DTO
+     *
+     * @param human - entry entity
+     * @return - human DTO or exeption. Exeption is returned if entry parameter has been null
+     */
+    public HumanDto convertToDto(Human human) {
+        if (human == null) {
+            throw new NullPointerException();
+        }
         HumanDto humanDto;
         humanDto = new HumanDto(human.getId(),
                 human.getName(),
