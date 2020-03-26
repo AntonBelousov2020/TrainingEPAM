@@ -8,14 +8,17 @@ import java.util.List;
 
 @Slf4j
 public class LoggingIntoFile {
-    public void staxAndDom(){
+    /**
+     * This method realise main logic. In this method calling other method on other classes
+     */
+    public void staxAndDom() {
         String fileName = "plantCatalog.xml";
 
         System.out.println("Вывод xml с помощью StAX");
         List<Catalog> catalogList = Stax.parseXml(fileName);
         log.info("<CATALOG>");
 
-        for (Catalog catalog : catalogList){
+        for (Catalog catalog : catalogList) {
             System.out.println(catalog.toString());
             log.info("<PLANT>");
             log.info("<COMMON>{}<COMMON>", catalog.getCommon());
@@ -31,8 +34,8 @@ public class LoggingIntoFile {
         List<Catalog> catalogListDom = Dom.parseXml(fileName);
         System.out.println("Вывод xml с помощью DOM");
 
-        if (catalogListDom != null){
-            for (Catalog catalog : catalogListDom){
+        if (catalogListDom != null) {
+            for (Catalog catalog : catalogListDom) {
                 System.out.println(catalog.toString());
             }
         } else {

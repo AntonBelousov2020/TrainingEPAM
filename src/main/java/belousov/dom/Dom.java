@@ -13,7 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dom {
-    public static List<Catalog> parseXml(String fileName){
+
+    /**
+     * This method parsed input xml document using DOM api
+     *
+     * @param fileName - input file xml (catalogPlant)
+     * @return parsed catalogPlant as list or null in case exception
+     */
+    public static List<Catalog> parseXml(String fileName) {
         String path = fileName;
         File xmlFile = new File(path);
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newDefaultInstance();
@@ -32,15 +39,21 @@ public class Dom {
 
             return catalogListDom;
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
+    /**
+     * This method get catalog for write it in list
+     *
+     * @param node - current node
+     * @return exemplar Catalog class
+     */
     private static Catalog getCatalog(Node node) {
         Catalog catalog = new Catalog();
-        if (node.getNodeType() == Node.ELEMENT_NODE){
+        if (node.getNodeType() == Node.ELEMENT_NODE) {
             Element element = (Element) node;
             catalog.setCommon(getTag("COMMON", element));
             catalog.setBotanical(getTag("BOTANICAL", element));
@@ -52,6 +65,13 @@ public class Dom {
         return catalog;
     }
 
+    /**
+     * This method get child nodes for element by tag name
+     *
+     * @param tag     - input tag
+     * @param element - input element
+     * @return child node value
+     */
     private static String getTag(String tag, Element element) {
         NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
         Node node = (Node) nodeList.item(0);
