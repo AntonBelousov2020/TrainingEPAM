@@ -8,6 +8,11 @@ import java.util.List;
 @Slf4j
 public class Memory {
 
+    /**
+     * This method try to get OutOfMemoryError
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         try {

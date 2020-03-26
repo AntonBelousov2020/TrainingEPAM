@@ -16,6 +16,13 @@ public class MyClassLoader extends ClassLoader {
         classPath = path;
     }
 
+    /**
+     * This method find necessary file with byte code
+     *
+     * @param className - name file with byte code
+     * @return string with class name
+     * @throws ClassNotFoundException in case of not found file with byte code
+     */
     @Override
     public Class<?> findClass(String className) throws ClassNotFoundException {
         try {
@@ -27,6 +34,13 @@ public class MyClassLoader extends ClassLoader {
         }
     }
 
+    /**
+     * This method get size class from file system
+     *
+     * @param path - input path to byte code file
+     * @return array of bytes into file
+     * @throws IOException - in case file value so big
+     */
     private byte[] fetchClassFromFS(String path) throws IOException {
         InputStream inputStream = new FileInputStream(new File(path));
         long length = new File(path).length();
