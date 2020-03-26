@@ -17,7 +17,7 @@
         </rollingPolicy>
     </appender>
     <!-- Логгер для файла-->
-    <logger name="Belousov.Service" level="info" additivity="false">
+    <logger name="com.epam.belousov.service.Service" level="info" additivity="false">
         <appender-ref ref="FILE-AUDIT"/>
     </logger>
 
@@ -31,12 +31,16 @@
     </appender>
 
     <!-- Логгер для консоли-->
-    <logger name="Belousov.Converter" level="info" additivity="false">
+    <logger name="com.epam.belousov.service.Converter" level="info" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="com.epam.belousov.service.Service" level="error" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
 
     <!-- Логгер для файла и консоли-->
-    <logger name="Belousov.RepositoryImpl" level="debug" additivity="false">
+    <logger name="com.epam.belousov.repository.RepositoryImpl" level="debug" additivity="false">
         <appender-ref ref="FILE-AUDIT"/>
         <appender-ref ref="CONSOLE"/>
     </logger>

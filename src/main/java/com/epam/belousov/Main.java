@@ -1,8 +1,9 @@
-package Belousov;
+package com.epam.belousov;
 
-import lombok.Data;
+import com.epam.belousov.exeptions.ConverterExeption;
+import com.epam.belousov.exeptions.ServiceExeption;
+import com.epam.belousov.service.Service;
 
-@Data
 public class Main {
     public static void main(String[] args) throws ServiceExeption, ConverterExeption {
         Service service = new Service();
