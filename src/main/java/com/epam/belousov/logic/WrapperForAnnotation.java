@@ -4,6 +4,7 @@ package com.epam.belousov.logic;
  * This class describe wrapper for parameters from file
  */
 public class WrapperForAnnotation {
+
     private String name;
     private Object value;
 

@@ -16,6 +16,7 @@ import java.util.*;
 public class MainLogic {
     //map of annotation
     private static Map<Field, WrapperForAnnotation> fieldWrapperForAnnotationMap = new HashMap<>();
+
     //number of entities on the input file
     private static int objectCounter;
     private static List<WrapperForFileEntity> entities;

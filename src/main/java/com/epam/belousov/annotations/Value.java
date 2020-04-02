@@ -11,6 +11,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Value {
+
     String stringValue() default "some name";
     int intValue() default 0;
     String filePath() default "";

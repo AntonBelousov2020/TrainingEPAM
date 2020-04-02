@@ -4,6 +4,7 @@ package com.epam.belousov.logic;
  * This class describe wrapper for entity parameter
  */
 public class WrapperForFileEntity {
+
     private String name;
     private int age;
 

@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class Service<T> {
     Logger log = LoggerFactory.getLogger(Service.class);
+
     /**
      * This method create exemplar of some class
      * @param clazz - input object class

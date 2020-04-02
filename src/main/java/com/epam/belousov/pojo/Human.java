@@ -10,6 +10,7 @@ import com.epam.belousov.annotations.Value;
 
 @Entity
 public class Human {
+
     private int age;
 
     @Value(filePath = "ListValue.txt")

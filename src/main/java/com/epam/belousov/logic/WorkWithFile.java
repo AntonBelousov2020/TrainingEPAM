@@ -10,6 +10,7 @@ import java.util.List;
  * This class handle information from file
  */
 public class WorkWithFile {
+
     /**
      * This method read text from the file
      *

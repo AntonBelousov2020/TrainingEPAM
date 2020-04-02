@@ -18,6 +18,7 @@ public class Main {
             log.info(human.getName() + "\t" + human.getAge());
         }
 
+        
         Service<Cat> service1 = new Service<>();
         List<Cat> catList = service1.getExemplarObject(Cat.class);
         for (Cat cat : catList) {

@@ -4,6 +4,7 @@ package com.epam.belousov.pojo;
  * This pojo class. This class describe cat entity. Class without annotation
  */
 public class Cat {
+
     private String name;
     private String colouration;
     private int age;
