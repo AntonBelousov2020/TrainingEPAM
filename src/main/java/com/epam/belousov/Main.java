@@ -15,7 +15,7 @@ public class Main {
         Service<Human> service = new Service<>();
         List<Human> humanList = service.getExemplarObject(Human.class);
         for (Human human : humanList) {
-            log.error(human.getName() + "\t" + human.getAge());
+            log.info(human.getName() + "\t" + human.getAge());
         }
 
         Service<Cat> service1 = new Service<>();
