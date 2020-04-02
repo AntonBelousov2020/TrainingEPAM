@@ -1,0 +1,10 @@
+age=20
+name=Ekaterina
+age=20
+name=Ivan
+age=21
+name=Michail
+age=22
+name=Alex
+age=23
+name=Anton
