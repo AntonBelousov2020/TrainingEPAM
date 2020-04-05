@@ -7,6 +7,9 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -14,10 +17,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * This class describe working with Stream class. This class also describe finding last day of the World
+ * This class describe working with Stream class. This class also describe finding end of the World
  */
 public class MyStream {
     private static final Logger log = LoggerFactory.getLogger(MyStream.class);
+    private static long summary;
     private static final String fileName = "UUID.txt";
 
     /**
@@ -39,9 +43,6 @@ public class MyStream {
         Stream<UUID> stream = Stream.generate(UUID::randomUUID)
                 .limit(10000);
         List<UUID> uuidList = stream.collect(Collectors.toList());
-//        for (int i = 0; i < uuidList.size(); i++) {
-//            log.info("UUID {}: {}", i, uuidList.get(i));
-//        }
         return Optional.ofNullable(uuidList);
     }
 
@@ -71,7 +72,6 @@ public class MyStream {
     private static void calcUuid() {
         Path path = Paths.get(MyStream.fileName);
         try {
-            long summary;
             summary = Files.readAllLines(path)
                     .stream()
                     .map(s -> s.replace("Optional", ""))
@@ -79,11 +79,28 @@ public class MyStream {
                     .map(s -> s.chars().map(Character::getNumericValue).sum())
                     .filter(summ -> summ > 100)
                     .count();
-            log.info("The number of elements the sum of which is 100: {}" ,summary);
+            log.info("The number of elements the sum of which is 100: {}", summary);
         } catch (IOException e) {
             log.error(e.getMessage());
         }
     }
 
-    public static void findLastDayOfTheWorld() {}
+    /**
+     * This method find end of the World
+     */
+    public void findEndOfTheWorld() {
+        LocalDateTime endOfTheWorld;
+        long months = summary / 100;
+        long days = summary % 100;
+
+        endOfTheWorld = LocalDateTime.parse(
+                LocalDateTime.now()
+                        .plusMonths(months)
+                        .plusDays(days)
+                        .atZone(ZoneId.of("America/Los_Angeles"))
+                        .toLocalDateTime()
+                        .format(DateTimeFormatter.ISO_DATE_TIME));
+
+        log.info("Date end of the World is: {}", endOfTheWorld);
+    }
 }

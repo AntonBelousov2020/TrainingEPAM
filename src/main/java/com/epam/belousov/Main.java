@@ -6,5 +6,6 @@ public class Main {
     public static void main(String[] args) {
         MyStream myStream = new MyStream();
         myStream.streamWork();
+        myStream.findEndOfTheWorld();
     }
 }
