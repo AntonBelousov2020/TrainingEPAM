@@ -13,9 +13,18 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/**
+ * This class describe work with sausage stream
+ */
 public class StreamSausage {
     Logger log = LoggerFactory.getLogger(StreamSausage.class);
 
+    /**
+     * This method read encoding text from the file and decode this text into buffer.
+     * Also create list with configure for fields by objects Sausage class
+     *
+     * @param fileName - input encoding file
+     */
     public void streamSausage(String fileName) {
         Base64.Decoder decoder = Base64.getDecoder();
         Path pathToFile = Paths.get(fileName);

@@ -20,6 +20,11 @@ public class Sausage {
         this.cost = cost;
     }
 
+    /**
+     * This constructor for create exemplars by Sausage class
+     *
+     * @param sausageList - input list with configuration for created objects Sausage class
+     */
     Sausage(List<String> sausageList) {
         this(sausageList.get(0).replace("'", ""),
                 Integer.parseInt(sausageList.get(1)),
@@ -50,6 +55,11 @@ public class Sausage {
         this.cost = cost;
     }
 
+    /**
+     * This overrode method for clear presentation of class fields
+     *
+     * @return clear presentation string with objects fields
+     */
     @Override
     public String toString() {
         return "Sausage{" +
