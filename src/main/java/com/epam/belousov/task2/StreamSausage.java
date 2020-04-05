@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  * This class describe work with sausage stream
  */
 public class StreamSausage {
-    Logger log = LoggerFactory.getLogger(StreamSausage.class);
+    private static final Logger log = LoggerFactory.getLogger(StreamSausage.class);
 
     /**
      * This method read encoding text from the file and decode this text into buffer.
