@@ -1,4 +1,4 @@
-package com.epam.belousov.task1.deadlock;
+package com.epam.belousov.task2.deadlocksolution;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * This class describe work for thread 1
  */
-class DeadLockDemo1 extends MainTask1DeadLock {
+class DeadLockDemo1 extends MainTask2DeadLockSolution {
     private static final Logger log = LoggerFactory.getLogger(DeadLockDemo1.class);
 
     /**
@@ -18,7 +18,7 @@ class DeadLockDemo1 extends MainTask1DeadLock {
             log.info("Thread 1: has lock1...");
 
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 log.error(e.getMessage());
             }

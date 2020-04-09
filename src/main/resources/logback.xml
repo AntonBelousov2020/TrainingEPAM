@@ -41,6 +41,35 @@
         <appender-ref ref="CONSOLE"/>
     </logger>
 
+    <logger name="com.epam.belousov.task1.deadlock.DeadLockDemo1" level="info" additivity="false">
+        <appender-ref ref="FILE-AUDIT"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="com.epam.belousov.task1.deadlock.DeadLockDemo2" level="info" additivity="false">
+        <appender-ref ref="FILE-AUDIT"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="com.epam.belousov.task2.raceconditionsolution.Calc" level="info" additivity="false">
+        <appender-ref ref="FILE-AUDIT"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="com.epam.belousov.task2.raceconditionsolution.RaceCondition" level="info" additivity="false">
+        <appender-ref ref="FILE-AUDIT"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="com.epam.belousov.task2.deadlocksolution.DeadLockDemo1" level="info" additivity="false">
+        <appender-ref ref="FILE-AUDIT"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="com.epam.belousov.task2.deadlocksolution.DeadLockDemo2" level="info" additivity="false">
+        <appender-ref ref="FILE-AUDIT"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
 
     <root level="debug">
         <appender-ref ref="CONSOLE"/>

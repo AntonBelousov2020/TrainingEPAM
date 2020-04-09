@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * This class realize logic for shared counter. This class creates base for make race condition
  */
-public class Calc {
+class Calc {
     private static final Logger log = LoggerFactory.getLogger(RaceCondition.class);
     private int concurVar = 0;
 

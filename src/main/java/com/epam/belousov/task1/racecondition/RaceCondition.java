@@ -3,7 +3,7 @@ package com.epam.belousov.task1.racecondition;
 /**
  * This class describe logic for race condition
  */
-public class RaceCondition extends Calc {
+class RaceCondition extends Calc {
 
     /**
      * This method create some threads for demonstration race condition

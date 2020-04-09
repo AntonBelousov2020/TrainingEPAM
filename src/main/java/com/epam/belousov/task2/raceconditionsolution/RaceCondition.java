@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * This class describe logic for solution race condition
  */
-public class RaceCondition extends Calc {
+class RaceCondition extends Calc {
     private static final Logger log = LoggerFactory.getLogger(RaceCondition.class);
 
     /**
