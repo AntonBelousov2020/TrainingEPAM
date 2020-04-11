@@ -1,7 +1,11 @@
 package com.epam.belousov.task3.message;
 
+/**
+ * This class describe sms entity
+ */
 public class Sms {
     private String message;
+
     public Sms() {
 
     }
